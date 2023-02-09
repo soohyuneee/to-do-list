@@ -9,6 +9,7 @@
 이미지
 
 - 메인 화면
+<img width="1440" alt="스크린샷 2023-02-10 오전 3 51 45" src="https://user-images.githubusercontent.com/105588175/217913332-0dc171ab-d3c3-40a7-81c2-bb91c9aaf4ec.png">
 
 ---
 
