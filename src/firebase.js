@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
+import {initializeApp} from "firebase/app";
+import {getAnalytics} from "firebase/analytics";
+import {getFirestore} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -9,6 +10,7 @@ import "firebase/compat/firestore";
 const firebaseConfig = {
 	apiKey: "AIzaSyAY-b0XiCkL8PCkD7PWZ-uPfy08Uj02Byg",
 	authDomain: "todo-app-21bf4.firebaseapp.com",
+	databaseURL: "https://todo-app-21bf4-default-rtdb.asia-southeast1.firebasedatabase.app",
 	projectId: "todo-app-21bf4",
 	storageBucket: "todo-app-21bf4.appspot.com",
 	messagingSenderId: "609528454068",
@@ -17,7 +19,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const firestore = firebase.firestore();
-
-export {firestore};
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+export const db = getFirestore(app);

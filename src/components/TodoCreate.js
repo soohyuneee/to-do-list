@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import {MdCancel} from "react-icons/md";
 import {useTodoDispatch, useTodoDataId, useTodoState} from "../TodoContext";
-import {firestore} from "../firebase";
 
 const Input = styled.input`
 	border-radius: 4px;
@@ -48,13 +47,6 @@ function TodoCreate() {
 	const onToggle = () => setOpen(!open);
 	const onChange = (e) => setValue(e.target.value);
 	const onSubmit = (e) => {
-		firestore.collection("todo").add({
-			todo: {
-				id: dataId.current,
-				text: value,
-				done: false,
-			},
-		});
 		e.preventDefault(); // 새로고침 방지
 		dispatch({
 			type: "CREATE",
@@ -71,7 +63,6 @@ function TodoCreate() {
 
 	const todos = useTodoState();
 	const undoneTasks = todos.filter((todo) => !todo.done);
-
 	const dispatch = useTodoDispatch();
 	const dataId = useTodoDataId();
 
