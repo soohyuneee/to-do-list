@@ -5,6 +5,7 @@ import TodoHead from "./components/TodoHead";
 import TodoList from "./components/TodoList";
 import TodoCreate from "./components/TodoCreate";
 import {TodoProvider} from "./TodoContext";
+import {firestore} from "./firebase";
 
 const GlobalStyle = createGlobalStyle`
   body {

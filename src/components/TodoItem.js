@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled, {css} from "styled-components";
 import {MdEdit, MdDone, MdDelete, MdCancel} from "react-icons/md";
 import {useTodoDispatch} from "../TodoContext";
+import {firestore} from "../firebase";
 
 const Edit = styled.div`
 	padding-right: 10px;
@@ -101,8 +102,13 @@ function TodoItem({id, done, text}) {
 	const onEditToggle = () => setEditToggle(!editToggle);
 	const onChange = (e) => setValue(e.target.value);
 	const onToggle = () => dispatch({type: "TOGGLE", id});
-	const onRemove = () => dispatch({type: "REMOVE", id});
-	const onEdit = () => dispatch({type: "EDIT", id, newText: value});
+	const onRemove = () => {
+		dispatch({type: "REMOVE", id});
+		firestore.collection("todo").doc.data().delete();
+	};
+	const onEdit = () => {
+		dispatch({type: "EDIT", id, newText: value});
+	};
 
 	const onCancleClick = () => {
 		setEditToggle(false);
