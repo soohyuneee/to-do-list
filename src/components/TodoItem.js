@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import styled, {css} from "styled-components";
-import {MdEdit, MdDone, MdDelete} from "react-icons/md";
+import {MdEdit, MdDone, MdDelete, MdCancel} from "react-icons/md";
+import {useTodoDispatch} from "../TodoContext";
 
 const Edit = styled.div`
 	padding-right: 10px;
@@ -80,19 +81,52 @@ const Text = styled.div`
 		`}
 `;
 
+const Input = styled.input`
+	border-radius: 4px;
+	border: 1px solid #dee2e6;
+	width: 320px;
+	height: 35px;
+	outline: none;
+	font-size: 18px;
+	box-sizing: border-box;
+	padding-left: 10px;
+	color: #7080ff;
+`;
+
 function TodoItem({id, done, text}) {
+	const dispatch = useTodoDispatch();
+	const [editToggle, setEditToggle] = useState(false);
+	const [value, setValue] = useState(text);
+
+	const onEditToggle = () => setEditToggle(!editToggle);
+	const onChange = (e) => setValue(e.target.value);
+	const onToggle = () => dispatch({type: "TOGGLE", id});
+	const onRemove = () => dispatch({type: "REMOVE", id});
+	const onEdit = () => dispatch({type: "EDIT", id, newText: value});
+
+	const onCancleClick = () => {
+		setEditToggle(false);
+		setValue(text);
+	};
+
+	const onEditClick = () => {
+		console.log(`id:${id}, text:${text}, value:${value}`);
+		onEdit(id, value);
+		setEditToggle(true);
+	};
+
 	return (
 		<TodoItemBlock>
-			<CheckBox done={done}>{done && <MdDone />}</CheckBox>
-			<Text done={done}>{text}</Text>
-			<Edit>
-				<MdEdit />
+			<CheckBox done={done} onClick={onToggle}>
+				{done && <MdDone />}
+			</CheckBox>
+			<Text done={done}>{editToggle ? <Input autoFocus value={value} onChange={onChange} /> : value}</Text>
+			<Edit onClick={onEditToggle}>
+				<MdEdit onClick={onEditClick} />
 			</Edit>
-			<Remove>
-				<MdDelete />
-			</Remove>
+			<Remove>{editToggle ? <MdCancel onClick={onCancleClick} /> : <MdDelete onClick={onRemove} />}</Remove>
 		</TodoItemBlock>
 	);
 }
 
-export default TodoItem;
+export default React.memo(TodoItem);

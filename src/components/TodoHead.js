@@ -25,11 +25,18 @@ const TodoHeadBlock = styled.div`
 `;
 
 function TodoHead() {
+	const today = new Date();
+	const dateString = today.toLocaleDateString("EN", {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	});
+	const dayName = today.toLocaleDateString("EN", {weekday: "long"});
 	return (
 		<TodoHeadBlock>
 			<header>
-				<div className="day">Tuesday, </div>
-				<div className="month"> January 10th</div>
+				<div className="day">{dayName}</div>
+				<div className="month">{dateString}</div>
 			</header>
 		</TodoHeadBlock>
 	);
