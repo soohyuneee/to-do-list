@@ -5,7 +5,7 @@ const TodoTempleteBlock = styled.div`
 	width: 512px;
 	height: 768px;
 
-	position: relative; /* 추후 박스 하단에 추가 버튼을 위치시키기 위한 설정 */
+	position: relative;
 	background: white;
 	box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
 

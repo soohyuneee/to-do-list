@@ -100,17 +100,9 @@ function TodoItem({id, done, text}) {
 
 	const onEditToggle = () => setEditToggle(!editToggle);
 	const onChange = (e) => setValue(e.target.value);
-	const onToggle = () => {
-		dispatch({type: "TOGGLE", id});
-	};
-	const onRemove = () => {
-		// const todoItemRef = doc(db, "todo", id);
-		// deleteDoc(todoItemRef);
-		dispatch({type: "REMOVE", id});
-	};
-	const onEdit = () => {
-		dispatch({type: "EDIT", id, newText: value});
-	};
+	const onToggle = () => dispatch({type: "TOGGLE", id});
+	const onRemove = () => dispatch({type: "REMOVE", id});
+	const onEdit = () => dispatch({type: "EDIT", id, newText: value});
 
 	const onCancleClick = () => {
 		setEditToggle(false);
