@@ -11,6 +11,12 @@
 - 메인 화면
 <img width="1440" alt="스크린샷 2023-02-10 오전 3 51 45" src="https://user-images.githubusercontent.com/105588175/217913332-0dc171ab-d3c3-40a7-81c2-bb91c9aaf4ec.png">
 
+- 모바일 반응형
+<img width="1440" alt="스크린샷 2023-02-10 오후 2 01 02" src="https://user-images.githubusercontent.com/105588175/218028783-061a9745-1a2c-46ac-95de-94e7cb8e9d30.png">
+
+- 오픈 그래프
+<img width="374" alt="스크린샷 2023-02-10 오후 4 06 09" src="https://user-images.githubusercontent.com/105588175/218028863-9f171e75-6856-4586-93a8-a2afe2d61fe6.png">
+
 ---
 
 - 기술스택 : React, Styled-Component, firebase <br >
