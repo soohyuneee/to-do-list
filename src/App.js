@@ -8,8 +8,8 @@ import {TodoProvider} from "./TodoContext";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: #e9ecef;
-  }
+    background: #e9ecef;  
+	}
 `;
 
 function App() {

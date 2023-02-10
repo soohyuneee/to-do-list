@@ -13,21 +13,28 @@ const Input = styled.input`
 	box-sizing: border-box;
 	padding-left: 10px;
 	color: #7080ff;
+	@media screen and (max-width: 600px) {
+		width: 250px;
+		font-size: 14px;
+	}
 `;
 const TodoFooterBlock = styled.div`
 	padding: 30px;
+	font-size: 18px;
 	border-top: 1px solid #96a3fc;
+	@media screen and (max-width: 600px) {
+		padding: 25px;
+		font-size: 16px;
+	}
 	footer {
 		display: flex;
 		letter-spacing: 3px;
 	}
 	.tasks-left {
 		color: #96a3fc;
-		font-size: 18px;
 	}
 	.add {
 		color: #7080ff;
-		font-size: 18px;
 		font-weight: bold;
 		right: 30px;
 		position: absolute;

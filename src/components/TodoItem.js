@@ -79,6 +79,10 @@ const Text = styled.div`
 			opacity: 0.5;
 			text-decoration: line-through;
 		`}
+	@media screen and (max-width: 600px) {
+		letter-spacing: 2px;
+		font-size: 18px;
+	}
 `;
 
 const Input = styled.input`
@@ -91,6 +95,10 @@ const Input = styled.input`
 	box-sizing: border-box;
 	padding-left: 10px;
 	color: #7080ff;
+	@media screen and (max-width: 600px) {
+		width: 180px;
+		font-size: 14px;
+	}
 `;
 
 function TodoItem({id, done, text}) {

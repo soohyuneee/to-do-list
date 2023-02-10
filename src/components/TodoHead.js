@@ -22,6 +22,9 @@ const TodoHeadBlock = styled.div`
 		font-size: 20px;
 		display: inline-block;
 	}
+	@media screen and (max-width: 600px) {
+		padding: 20px;
+	}
 `;
 
 function TodoHead() {
