@@ -127,7 +127,7 @@ function TodoItem({id, done, text}) {
 			<CheckBox done={done} onClick={onToggle}>
 				{done && <MdDone />}
 			</CheckBox>
-			<Text done={done}>{editToggle ? <Input autoFocus value={value} onChange={onChange} /> : value}</Text>
+			<Text done={done}>{editToggle ? <Input autoFocus value={value} onChange={onChange} /> : text}</Text>
 			<Edit onClick={onEditToggle}>
 				<MdEdit onClick={onEditClick} />
 			</Edit>
